@@ -1,0 +1,18 @@
+div(class="section beatsPlayer" data-anchor="secondPage")
+    .wrapper
+        +b.section-header.row
+            +e.logo-and-menu
+                +e.IMG.logo.is-animated-left(src="img/general/logo_red.svg" alt="Lil Bling")
+                +b.menu._color_gray.menu-toggle.is-animated-left
+                    +b.hamburger._steps
+                        +e.SPAN.line._color_gray
+                        +e.SPAN.line._color_gray
+                        +e.SPAN.line._color_gray
+                    +e.SPAN.text Menu
+            +e.heading
+                h6(class="is-animated-right") LIL BLING PRODUCTION
+                h1(class="is-animated-right") BEATS CATALOG
+        .player-wrapper.is-animated-bottom
+            .player-background
+            .player-background-inner
+            iframe(id="mfs_html5" src="https://airbit.com/widgets/html5/?uid=215042&config=429611" class="beats-player" frameborder="0" scrolling="no")

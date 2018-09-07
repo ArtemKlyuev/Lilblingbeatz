@@ -1,0 +1,38 @@
+include ../utilities/bemto/bemto.pug
+include ../utilities/mixins
+block variables
+
+doctype html
+html(lang="en") 
+	head
+		meta(charset="utf-8")
+		title #{title}
+		meta(name="viewport" content="width=device-width,initial-scale=1")
+		meta(name="description" content="Music Producer from Russia, Saint-Petersburg. Production credits: Breezey Montana, Rigos, Bumble Beezy, Basic Boy, & more. Collaboration: Viramania, RedLightMuzik, Lil Smooky, SK1ttless Beats & more")
+		link(rel="canonical" href="http://lilblingbeatz.com")
+		link(rel="icon" href="img/general/favicon.ico" type="image/x-icon")
+		link(rel="shortcut icon" href="img/general/favicon.ico" type="image/x-icon")
+		link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700")
+		link(rel="stylesheet" href="css/libs.css")
+		link(rel="stylesheet" href="css/main.css")
+		script
+			//- (window.Image ? (new Image()) : document.createElement('img')).src = 'https://vk.com/rtrg?p=VK-RTRG-227806-fwPqh';
+			include vk.js
+		
+	body
+		include ../components/preloaderLogo
+		include ../components/menu
+			
+		main
+			block content
+		include ../components/modal
+			
+		include ../components/footer
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+		//- script
+			//- // <![CDATA[
+			//- window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+			//- // ]]>
+		script(src="js/libs.js")
+		script(src="js/main.js")
+		block script

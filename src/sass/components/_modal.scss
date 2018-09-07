@@ -1,0 +1,438 @@
+.modal-background {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transform: scale(0);
+    background: rgba(0, 0, 0, .8);
+    z-index: 50;
+    &.open {
+        transform: scale(1); //background: rgba(0, 0, 0, 0);
+        animation: fadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+        .modal {
+            //width: 20%;
+            background-color: transparent;
+            animation: modalFadeIn 0.5s 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+            &__svg {
+                rect {
+                    animation: sketchIn 0.5s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+                }
+            }
+        }
+        .close {
+            z-index: 1010;
+            opacity: 0;
+            animation: modalContentFadeIn 0.5s 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+        }
+        &.end {
+            animation: quickScaleDown 0s .5s linear forwards;
+            display: none;
+        }
+        &.out {
+            //animation: fadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; //display: none;
+            &.successfully {
+                .modal {
+                    animation: fadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+                    display: none;
+                } // .js-modal-background {
+                //     display: flex;
+                //     justify-content: center;
+                //     align-items: middle;
+                //     background: rgba(0, 0, 0, 0);
+                //     animation: fadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+                // }
+                .js-modal {
+                    position: relative;
+                    display: inline-block;
+                    padding: 50px;
+                    background: $sectionsBackground;
+                    border-radius: 3px;
+                    font-weight: 300;
+                    max-width: 40%;
+                    background-color: transparent;
+                    animation: modalFadeIn 0.5s 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+                    &__svg {
+                        rect {
+                            animation: sketchIn 0.5s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+                        }
+                    }
+                    .close {
+                        z-index: 1010;
+                        opacity: 0;
+                        animation: modalContentFadeIn 0.5s 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+                    }
+                }
+            }
+            .modal {
+                animation: modalFadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+                &__input-container {
+                    animation: modalContentFadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+                }
+                &__input {
+                    animation: modalContentFadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+                }
+                &__svg {
+                    rect {
+                        animation: sketchOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+                    }
+                }
+                button {
+                    animation: modalContentFadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+                }
+            }
+        }
+    }
+}
+
+.modal {
+    position: relative;
+    display: inline-block;
+    width: 20%;
+    padding: 50px;
+    border-radius: 3px;
+    font-weight: 300;
+    background: $sectionsBackground;
+    @include lg(width, 30%);
+    @include sm(width, 45%);
+    &__input-container {
+        margin: 30px 0 0 0;
+        &:nth-child(3) {
+            margin-bottom: 30px;
+        }
+        &::after {
+            background-color: $inputsActionColor;
+            transform: scaleX(0);
+        }
+    }
+    &__svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: 3px;
+        rect {
+            stroke: $sectionsBackground;
+            stroke-width: 2px;
+            stroke-dasharray: 1750;
+            stroke-dashoffset: 1750;
+            @include lg-block() {
+                stroke-dasharray: 1620;
+                stroke-dashoffset: 1620;
+            }
+            @include md-block() {
+                stroke-dasharray: 1520;
+                stroke-dashoffset: 1520;
+            }
+            @include xs-block() {
+                stroke-dasharray: 1340;
+                stroke-dashoffset: 1340;
+            }
+        }
+    }
+    &__label {
+        display: block;
+        font-size: 16px;
+        transform: translateY(25px);
+        color: $primaryFormColor;
+        transition: all 0.5s;
+        text-align: left;
+    }
+    &__input {
+        width: 100%;
+        background: transparent;
+        border: none;
+        outline: none;
+        padding: 8px 0;
+        margin: 0;
+        font-size: 16px;
+    }
+}
+
+.input-name-message,
+.input-phone-message {
+    font-size: 18px;
+    line-height: 22px;
+    color: $formWarningMessage;
+}
+
+.btn {
+    //position: relative;
+    display: block;
+    margin: 0 auto;
+    max-width: 160px;
+    width: 100%;
+    color: $white;
+    background: $primaryFormColor;
+    cursor: pointer;
+    font-size: 16px; //font-weight: 400;
+    line-height: 45px; //text-decoration: none;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    &__svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 45px;
+    }
+    &__rect {
+        fill: none;
+        stroke: $primaryFormColor;
+        stroke-width: 2;
+        stroke-dasharray: 700, 0;
+    }
+    &:hover {
+        background: transparent; //rgba(225, 51, 45, 0);
+        color: $primaryFormColor;
+        font-weight: 900;
+        letter-spacing: 1px;
+        transition-property: all;
+        transition-duration: .5s;
+        transition-timing-function: ease;
+        .btn__rect {
+            stroke-width: 5;
+            stroke-dasharray: 15, 310;
+            stroke-dashoffset: 48;
+            transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+    }
+}
+
+.close {
+    position: absolute;
+    width: 36px;
+    height: 30px;
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    line-height: 0;
+    right: 5%;
+    background-color: transparent;
+    color: black;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.modal-background.open .modal__input-container,
+.modal-background.open .modal__input,
+.modal-background.open .send {
+    position: relative;
+    z-index: 1010;
+    opacity: 0;
+    animation: modalContentFadeIn 0.5s 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.modal__input-container::before,
+.modal__input-container::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: $primaryFormColor;
+    bottom: 0;
+    left: 0;
+    transition: all 0.5s;
+}
+
+.modal__input-container::after {
+    background-color: $inputsActionColor;
+    transform: scaleX(0);
+}
+
+.is-active {
+    .modal__label {
+        color: $inputsActionColor;
+    }
+    &::after {
+        transform: scaleX(1);
+    }
+}
+
+.is-completed {
+    .modal__label {
+        font-size: 12px;
+        transform: translateY(0);
+    }
+}
+
+.js-modal-background {
+    display: none;
+}
+
+.js-modal {
+    display: none; // position: relative;
+    // display: inline-block;
+    // padding: 50px;
+    // background: $sectionsBackground;
+    // border-radius: 3px;
+    // font-weight: 300;
+    &__svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: 3px;
+        rect {
+            stroke: $sectionsBackground;
+            stroke-width: 2px;
+            stroke-dasharray: 1750;
+            stroke-dashoffset: 1750;
+            @include lg-block() {
+                stroke-dasharray: 1620;
+                stroke-dashoffset: 1620;
+            }
+            @include md-block() {
+                stroke-dasharray: 1520;
+                stroke-dashoffset: 1520;
+            }
+            @include xs-block() {
+                stroke-dasharray: 1340;
+                stroke-dashoffset: 1340;
+            }
+        }
+    }
+}
+
+.modal-background.open.out.successfully .js-modal__text,
+.modal-background.open.out.successfully .js-modal .btn {
+    position: relative;
+    z-index: 1010;
+    opacity: 0;
+    text-align: center;
+    animation: modalContentFadeIn 0.5s 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes quickScaleDown {
+    0% {
+        transform: scale(1);
+    }
+    99.9% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes sketchIn {
+    0% {
+        stroke-dashoffset: 1750;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes sketchOut {
+    0% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: 1750;
+    }
+}
+
+@include lg-block() {
+    @keyframes sketchIn {
+        0% {
+            stroke-dashoffset: 1620;
+        }
+        100% {
+            stroke-dashoffset: 0;
+        }
+    }
+    @keyframes sketchOut {
+        0% {
+            stroke-dashoffset: 0;
+        }
+        100% {
+            stroke-dashoffset: 1620;
+        }
+    }
+}
+
+@include md-block() {
+    @keyframes sketchIn {
+        0% {
+            stroke-dashoffset: 1520;
+        }
+        100% {
+            stroke-dashoffset: 0;
+        }
+    }
+    @keyframes sketchOut {
+        0% {
+            stroke-dashoffset: 0;
+        }
+        100% {
+            stroke-dashoffset: 1520;
+        }
+    }
+}
+
+@include xs-block() {
+    @keyframes sketchIn {
+        0% {
+            stroke-dashoffset: 1340;
+        }
+        100% {
+            stroke-dashoffset: 0;
+        }
+    }
+    @keyframes sketchOut {
+        0% {
+            stroke-dashoffset: 0;
+        }
+        100% {
+            stroke-dashoffset: 1340;
+        }
+    }
+}
+
+@keyframes modalFadeIn {
+    0% {
+        background-color: transparent;
+    }
+    100% {
+        background-color: $sectionsBackground;
+    }
+}
+
+@keyframes modalFadeOut {
+    0% {
+        background-color: $white;
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+@keyframes modalContentFadeIn {
+    0% {
+        opacity: 0;
+        top: -20px;
+    }
+    100% {
+        opacity: 1;
+        top: 0;
+    }
+}
+
+@keyframes modalContentFadeOut {
+    0% {
+        opacity: 1;
+        top: 0px;
+    }
+    100% {
+        opacity: 0;
+        top: -20px;
+    }
+}

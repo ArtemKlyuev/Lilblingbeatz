@@ -1,0 +1,18 @@
+build
+manifest
+node_modules
+pug/utilities/vendor
+pug/utilities/bemto
+.tinypng-sigs
+*.ico
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.svg
+_sgv-sprite.scss
+_svg-sprite.scss
+_sprite.scss
+_smart-grid.scss
+yarn-error.log
+# package-lock.json

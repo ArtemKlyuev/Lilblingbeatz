@@ -1,0 +1,69 @@
+.preloader {
+    z-index: 500;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 1;
+    visibility: visible;
+    &__logo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 300px;
+        @include sm(max-width, 200px);
+        path {
+            stroke: $white;
+            fill: $white;
+            stroke-dasharray: 2000;
+            opacity: 1;
+            animation: preloader 4s cubic-bezier(0, 0.23, 1, 0.1) infinite;
+        }
+    }
+    &.done {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes preloader {
+    0% {
+        opacity: 0;
+        fill: none;
+        stroke-dashoffset: 2000;
+    }
+    20% {
+        opacity: 1;
+        fill: none;
+        stroke-dashoffset: 2000;
+    }
+    80% {
+        fill: #ffffff00;
+    }
+    90% {
+        opacity: 1;
+        fill: $white;
+        stroke-dashoffset: 0;
+    }
+    100% {
+        opacity: 1;
+        fill: $white;
+        stroke-dashoffset: 0;
+    }
+    /* 30% {
+        opacity: 1;
+        fill: none;
+        stroke-dashoffset: 2000;
+    }
+    90% {
+        fill: #ffffff00;
+    }
+    100% {
+        opacity: 1;
+        fill: $white;
+        stroke-dashoffset: 0;
+    } */
+}

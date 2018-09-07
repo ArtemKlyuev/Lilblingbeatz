@@ -1,0 +1,37 @@
+.player-background,
+.player-background-inner,
+iframe {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+}
+
+.player-wrapper {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+}
+
+.player-background {
+    width: 70vw;
+    height: 60vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    @include lg(display, none);
+    &-inner {
+        width: 63vw;
+        height: 65vh;
+        background-color: rgba(0, 0, 0, 0.2);
+        @include lg(display, none);
+    }
+}
+
+.beats-player {
+    width: 55vw;
+    height: 72.5vh;
+    @include lg-block() {
+        width: 90vw;
+        height: 80vh;
+    }
+}

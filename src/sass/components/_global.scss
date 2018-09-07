@@ -1,0 +1,166 @@
+html {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 15px;
+}
+
+a {
+	text-decoration: none;
+}
+
+input {
+	box-shadow: none;
+}
+
+input:-moz-placeholder,
+input:focus {
+	box-shadow: none; //!important;
+}
+
+input:invalid {
+	box-shadow: none;
+}
+
+.wrapper {
+	@include wrapper();
+	box-sizing: border-box;
+}
+
+.row {
+	@include row-flex();
+}
+
+.col {
+	@include col();
+}
+
+.entrySection .fp-scroller,
+.beatsPlayer .fp-scroller,
+.contacts .fp-scroller {
+	height: 100%;
+}
+
+.section:not(:first-child) {
+	background-color: $sectionsBackground;
+	.wrapper {
+		height: 100%;
+	}
+}
+
+.menu {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	&_color {
+		&_white {
+			z-index: 4;
+			color: $white;
+			@include to(700px) {
+				align-items: baseline;
+				padding-top: 50px;
+			}
+			&:hover {
+				.hamburger__line {
+					background-color: $menuWhiteHover;
+				}
+				.menu__text {
+					color: $menuWhiteHover;
+				}
+			}
+		}
+		&_gray {
+			color: $gray;
+			&:hover {
+				.hamburger__line {
+					background-color: $menuGrayHover;
+				}
+				.menu__text {
+					color: $menuGrayHover;
+				}
+			}
+			&::before {
+				content: '';
+				display: block;
+				width: 1px;
+				height: 70px;
+				margin-right: 20px;
+				background: #AFABAA;
+				@include lg(display, none);
+			}
+		}
+	}
+	&__text {
+		font-size: .85rem;
+		font-weight: 400;
+		text-transform: uppercase;
+		@include lg(display, none);
+	}
+}
+
+.menu-toggle:hover .hamburger__line {
+	width: 100%;
+}
+
+.hamburger {
+	width: 25.5px;
+	height: 18px; //float: left;
+	margin-right: 30px;
+	&__line {
+		//content: " ";
+		display: block;
+		width: 100%;
+		height: 1px;
+		margin-bottom: 7px;
+		transition: width 0.12s ease-in-out;
+		&_color {
+			&_white {
+				background: $white;
+			}
+			&_gray {
+				background: $gray;
+			}
+		}
+		&:nth-child(2) {
+			width: 70%;
+		}
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.section-header {
+	padding-top: 21px;
+	justify-content: space-between;
+	&__logo-and-menu {
+		display: flex;
+	}
+	&__logo {
+		width: 120px;
+		align-self: center;
+		margin-right: 30px;
+		@include lg(display, none);
+	}
+	&__heading {
+		text-align: right;
+		text-transform: uppercase;
+		h6 {
+			margin: 7.5px 0 3.75px 0;
+			font-size: .8rem;
+			font-weight: 600;
+			color: $red;
+		}
+		h1 {
+			margin: 0;
+			font-size: 2.7rem;
+			font-weight: 300;
+			color: $gray;
+			@include xs(font-size, 1.7rem);
+		}
+	}
+	&.row {
+		@include md-block() {
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+}

@@ -1,0 +1,32 @@
+.modal-background
+    +b.modal
+        form#form(name="form")
+            //- class="input-effect mat-div"
+            +e.input-container
+                //- class="mat-label" 
+                +e.LABEL.label(for="name") Name
+                //- class="effect-16 mat-input" 
+                +e.INPUT.input(type="text" id="name" name="name" required placeholder="") 
+            p.input-name-message
+            //- class="input-effect mat-div"
+            +e.input-container
+                //- class="mat-label" 
+                +e.LABEL.label(for="phone") Phone
+                //- class="effect-16 mat-input" 
+                +e.INPUT.input(type="tel" id="phone" name="phone" required placeholder="") 
+            p.input-phone-message
+            +b.BUTTON.btn.send Send
+                +e.SVG.svg
+                    +e.RECT.rect(x="0" y="0" fill="none" width="100%" height="100%")
+        button.close ×
+        +e.SVG.svg(xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none")
+            rect(x="0" y="0" fill="none" width="100%" height="100%" rx="3" ry="3")
+    //-.js-modal-background
+    +b.js-modal
+        +e.P.text Thank You! We will contact you as soon as possible
+        +b.BUTTON.btn Ok
+            +e.SVG.svg
+                +e.RECT.rect(x="0" y="0" fill="none" width="100%" height="100%")
+        button.close ×
+        +e.SVG.svg(xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none")
+            rect(x="0" y="0" fill="none" width="100%" height="100%" rx="3" ry="3")

@@ -1,0 +1,44 @@
+.menu-container
+        .row
+            .col
+                img(src="img/general/logo_white.svg" alt="Lil Bling" class="menu-logo")
+            .col
+                header
+                    nav
+                        +b.UL.nav
+                            a.nav__link(href="#firstPage")
+                                +e.LI.item(data-text="Main page")
+                                    +e.SPAN.numbers 01
+                                    = 'Main page'
+                            a.nav__link(href="#secondPage")
+                                +e.LI.item(data-text="Beats catalog")
+                                    +e.SPAN.numbers 02
+                                    = 'Beats catalog'
+                            a.nav__link(href="#thirdPage")
+                                +e.LI.item(data-text="Pricing")
+                                    +e.SPAN.numbers 03
+                                    = 'Pricing'
+                            a.nav__link(href="#fourthPage")
+                                +e.LI.item(data-text="Get in touch")
+                                    +e.SPAN.numbers 04
+                                    = 'Get in touch'
+
+                button.menu-close
+
+                +b.menu-socials
+                    span.modal-open Booking
+                    +e.icon-container
+                        +e.A.link(href="http://instagram.com/lilblingbeatz" target="_blank")
+                            +e.SPAN.icon
+                    +e.icon-container
+                        +e.A.link(href="https://vk.com/id219510214" target="_blank")
+                            +e.SPAN.icon
+                    +e.icon-container
+                        +e.A.link(href="http://soundcloud.com/lil-bling-beatz" target="_blank")
+                            +e.SPAN.icon
+                    +e.icon-container
+                        +e.A.link(href="http://youtube.com/channel/UCmn-JeaYRSCm8L05x3gT3zA" target="_blank")
+                            +e.SPAN.icon
+                    +e.icon-container
+                        +e.A.link(href="http://twitter.com/LilBlingBeatz" target="_blank")
+                            +e.SPAN.icon

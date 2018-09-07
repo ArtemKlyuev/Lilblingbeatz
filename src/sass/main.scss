@@ -1,0 +1,16 @@
+@charset "UTF-8"; // utilities
+@import 'utilities/_smart-grid';
+@import 'utilities/_variables';
+@import 'utilities/_mixins';
+@import 'utilities/_svg-sprite';
+@import 'utilities/_png-sprite2_true';
+// global styles
+@import 'components/_global';
+@import 'components/_preloaderLogo';
+// header
+@import 'sections/_entrySection';
+@import 'sections/_beatsPlayer';
+@import 'sections/_pricing';
+@import 'sections/_contacts';
+@import 'components/_modal';
+@import 'components/_menu';

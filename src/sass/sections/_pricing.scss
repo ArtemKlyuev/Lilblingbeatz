@@ -1,0 +1,207 @@
+.pricing .section-header {
+    margin-bottom: 8%;
+}
+
+.card-row {
+    //position: absolute;
+    /* position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    width: 100%;
+    max-width: 1700px;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    box-sizing: border-box;
+    justify-content: space-evenly; //@include lg(top, 91%);
+}
+
+.popular-pricing {
+    position: absolute;
+    top: -3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 30px;
+    background-image: url('../img/general/most-pop-bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: .8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $red;
+}
+
+.card {
+    height: 470px;
+    background-color: $card-bg;
+    transition: box-shadow .25s;
+    &:not(:last-child) {
+        @include lg(margin-bottom,
+        2%);
+        @include sm(margin-bottom,
+        4%);
+        @include xs(margin-bottom,
+        9%);
+    }
+    &__content {
+        padding: 24px 40px;
+        &::before {
+            position: absolute;
+            font-size: .75rem;
+            font-weight: 400;
+            color: $card-category;
+        }
+    }
+    &__title {
+        margin: 30px auto;
+        font-size: 1.5rem;
+        color: $red;
+    }
+    &__info {
+        position: relative;
+        margin: 0 0 30px 0;
+        font-size: .85rem;
+        font-weight: 700;
+        color: $card-info;
+        &::before {
+            position: absolute;
+            font-size: .75rem;
+            font-weight: 400;
+            color: $card-category;
+        }
+    }
+    &__price {
+        padding-top: 15px;
+        border-top: 1px solid $pricing-border;
+        font-size: 2rem;
+        font-weight: 700;
+        color: $red;
+        &::before {
+            font-size: 2rem;
+            font-weight: 600;
+            color: $bucks;
+        }
+    }
+    &:not(:nth-child(n+4)) {
+        .card__info {
+            &:nth-child(2) {
+                &::before {
+                    content: 'Single-tagged';
+                    top: -13px;
+                }
+            }
+            &:nth-child(3) {
+                &::before {
+                    content: 'Distribute';
+                    top: -11px;
+                }
+            }
+            &:nth-child(4) {
+                &::before {
+                    content: 'Commercial use';
+                    top: -11px;
+                }
+            }
+            &:nth-child(5) {
+                &::before {
+                    content: 'Instrumental right';
+                    top: -11px;
+                }
+            }
+            &:nth-child(6) {
+                &::before {
+                    content: 'Credit';
+                    top: -11px;
+                }
+            }
+        }
+    }
+    &:not(:nth-child(5)) {
+        .card__price {
+            margin-top: 20%; //3rem
+            &::before {
+                content: '$';
+            }
+        }
+    }
+    &:nth-child(2) {
+        position: relative;
+    }
+    &:nth-child(4) {
+        .card__info {
+            &:nth-child(2) {
+                &::before {
+                    content: 'Untagged';
+                    top: -13px;
+                }
+            }
+            &:nth-child(3) {
+                &::before {
+                    content: 'Distribute';
+                    top: -11px;
+                }
+            }
+            &:nth-child(4) {
+                &::before {
+                    content: 'Commercial use';
+                    top: -11px;
+                }
+            }
+            &:nth-child(5) {
+                &::before {
+                    content: 'Instrumental right';
+                    top: -11px;
+                }
+            }
+            &:nth-child(6) {
+                &::before {
+                    content: 'Credit';
+                    top: -11px;
+                }
+            }
+        }
+    }
+    &:nth-child(5) {
+        .card__info {
+            &:nth-child(2) {
+                &::before {
+                    content: 'Untagged';
+                    top: -13px;
+                }
+            }
+            &:nth-child(3) {
+                &::before {
+                    content: 'Distribute';
+                    top: -11px;
+                }
+            }
+            &:nth-child(4) {
+                &::before {
+                    content: 'Instrumental right';
+                    top: -11px;
+                }
+            }
+            &:nth-child(5) {
+                &::before {
+                    content: 'Credit';
+                    top: -11px;
+                }
+            }
+        }
+        .card__price {
+            margin-top: 34%;
+        }
+    }
+    &:hover {
+        box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+}
+
+.card.col {
+    @include size(2);
+    @include size-lg(4);
+    @include size-md(5);
+    @include size-xs(10);
+}
